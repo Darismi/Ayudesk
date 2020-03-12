@@ -2,12 +2,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.css">
-    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.css">
-    <link rel="stylesheet" href="css/bootstrap-reboot.min.css">
     <title>Service Desk</title>
   </head>
   <body>
@@ -26,7 +21,7 @@
       <br>
       <br>
       <h2>¿Qué problema presenta?</h2>
-      <input type="text" name="" value="" style="width:500px; height:150px;">
+      <input type="text" name="" value="" style="width:500px; height:150px;" class="form-control">
       <br>
       <br>
       <form class="" action="index.html" method="post">
@@ -40,12 +35,12 @@
         <br>
         <br>
         <h2>¿Cómo ha intentado solucionar el problema?</h2>
-        <input type="text" name="" value="" style="width:500px; height:150px;">
+        <input type="text" name="" value="" style="width:500px; height:150px;" class="form-control">
         <br>
         <br>
-        <input type="button" name="" value="Enviar">
+        <input type="button" name="" value="Enviar" class="btn btn-default">
       </form>
-
     </div>
+    <script src="js/bootstrap.min.js" charset="utf-8"></script>
   </body>
 </html>

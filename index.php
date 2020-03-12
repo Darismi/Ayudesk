@@ -53,7 +53,7 @@
             <div class="col-12 user-img" >
               <img src="img/user_icon.png">
             </div>
-            <form class="col-12" action="login.php" method="post">
+            <form class="col-12" action="captura_incidentes.php" method="post">
               <div class="form-group">
                 <input class="form-control" type="text" placeholder="nombre de usuario" name="txtUsuario">
               </div>
@@ -63,7 +63,7 @@
               <div class="form-group">
                 <input type="submit" class="btn btn-primary" placeholder="Ingresar" name="btnIngresar">
               </div>
-            </form>            
+            </form>
           </div>
         </div>
       </div>
