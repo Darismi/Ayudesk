@@ -1,4 +1,5 @@
 
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -52,9 +53,9 @@
         <div class="col-sm-8 main-section">
           <div class="modal-content">
             <div class="col-12 user-img" >
-              <img src="img/user_icon.png">
+              <img src="img/tecn.jpg">
             </div>
-            <form class="col-12" action="log_usr.php" method="post">
+            <form class="col-12" action="log_tec.php" method="post">
               <div class="form-group">
                 <input class="form-control" type="text" placeholder="usuario" name="txtUsuario">
               </div>
@@ -64,13 +65,12 @@
               <div class="form-group">
                 <input type="submit" class="btn btn-primary" placeholder="Ingresar" name="btnIngresar">
               </div>
-
               <div class="">
-                <a href="login_asistente.php">Ingresar como asistente</a>
+                <a href="index.php">Ingresar como Usuario</a>
               </div>
-                <br>
+              <br>
               <div class="">
-                <a href="login_tecnico.php">Ingresar como Tecnico</a>
+                <a href="#">Ingresar como asistente</a>
               </div>
             </form>
           </div>

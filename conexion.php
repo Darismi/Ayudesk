@@ -12,5 +12,4 @@
     }else{
         echo "no se pudo conectar a la base de datos";
     }
-
 ?>
