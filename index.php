@@ -62,7 +62,7 @@
                 <input type="password" class="form-control" placeholder="contraseña" name="txtContraseña">
               </div>
               <div class="form-group">
-                <input type="submit" class="btn btn-primary" placeholder="Ingresar" name="btnIngresar">
+                <input type="submit" class="btn btn-primary" placeholder="Ingresar" value="Ingresar" name="btnIngresar">
               </div>
 
               <div class="">

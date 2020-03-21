@@ -74,7 +74,7 @@
         <textarea placeholder="Escriba detalladamente" name="comentarios" rows="10" cols="70"></textarea>
         <br>
         <br>
-        <input type="submit" class="btn btn-primary" placeholder="Reportar" name="btnIngresar">
+        <input type="submit" class="btn btn-primary" placeholder="Reportar" value="Reportar" name="btnIngresar">
       </form>
     </div>
     </center>
