@@ -14,6 +14,7 @@
   </head>
   <body>
     <div class="container">
+	<h1>Hola</h1>
       <center>
         <h1>Reporte de incidente</h1>
 
