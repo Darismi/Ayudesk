@@ -21,12 +21,12 @@
 
       <form class="" action="captura_bd.php" method="post">
         <h2>Dispositivo afectado</h2>
-        <select name="select">
+        <select name="dispositivo">
           <option value="value1" selected >Dispositivo</option>
           <?php
             while ($row = $query -> fetch_row()) {
             ?>
-                    <option value="<?=$row[0]?>"><?=$row[2]?></option>
+              <option value="<?=$row[0]?>"><?=$row[2]?></option>
             <?php
             }
             ?>
@@ -58,21 +58,20 @@
         <br>
         <br>
         <h2>¿Qué problema presenta?</h2>
-        <textarea placeholder="Escriba detalladamente" name="comentarios" rows="10" cols="70"></textarea>
+        <textarea placeholder="Escriba detalladamente" name="problema" rows="10" cols="70"></textarea>
         <br>
         <br>
 
         <h2>¿Ha intentado solucionar el problema?</h2>
         <br>
         <h3>Sí</h3>
-        <input type="radio" name="" value="Sí">
-        <br>
+        <input type="radio" name="group" value="Si">
         <h3>No</h3>
-        <input type="radio" name="" value="No">
+        <input type="radio" name="group" value="No">
         <br>
         <br>
         <h2>¿Cómo ha intentado solucionar el problema?</h2>
-        <textarea placeholder="Escriba detalladamente" name="comentarios" rows="10" cols="70"></textarea>
+        <textarea placeholder="Escriba detalladamente" name="intento" rows="10" cols="70"></textarea>
         <br>
         <br>
         <input type="submit" class="btn btn-primary" placeholder="Reportar" value="Reportar" name="btnIngresar">

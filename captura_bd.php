@@ -1,26 +1,11 @@
 <?php
+  require 'conexion.php';
+  session_start();
+  $fecha = date("Y/m/d");
 
+  $query = mysqli_query($Conexion, "INSERT INTO `reporte`
+    (`id_reporte`, `fecha`, `descripcion_usuario`, `descripcion_asistente`, `descripcion_tecnico`, `iddispositivo`, `idtecnico`, `idusuario`, `idasistente`, `autoSolu`, `autoSoluDescripcion`, `estado`)
+     VALUES (NULL, '".$fecha."', '".$_POST['problema']."', NULL, NULL, '".$_POST['dispositivo']."', NULL, '".$_SESSION['idusuario']."', NULL, '".$_POST['group']."', '".$_POST['intento']."', 'Pendiente');");
+
+     //header ("Location: captura_incidentes.php");
  ?>
-
- <table class="table table-bordered" style="margin-top: 50px;">
-   <th>
-     <td>
-       <h4>Dispositivo</h4>
-     </td>
-     <td>
-       <h4>Marca</h4>
-     </td>
-     <td>
-       <h4>Procesador</h4>
-     </td>
-     <td>
-       <h4>Memoria</h4>
-     </td>
-     <td>
-       <h4>Almacenamiento</h4>
-     </td>
-     <td>
-       <h4>sistema operativo</h4>
-     </td>
-   </th>
- </table>
