@@ -1,64 +1,48 @@
+<?php
+  require 'conexion.php';
+  $query = mysqli_query($Conexion, "SELECT * FROM reporte where estado = 'Pendiente'");
+
+ ?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Service desk</title>
-    <style media="screen">
-      body{
-        background-color: white;
-      }
-      .container{
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 500px
-      }
-      tr{
-        background-color: #ccc;
-        color: green;
-        font-size: 20px;
-      }
-      table{
-        width: 100%;
-        height: 50%;
-        border-radius: 10px;
-      }
-      button{
-      background-color: green;
-      color: white;
-      }
-    </style>
+    <title>Service Desk</title>
   </head>
   <body>
     <div class="container">
       <table>
-        <thead>
+        <th>
+          <td>
+            <h2>Usuario</h2>
+          </td>
+          <td>
+            <h2>Nombre</h2>
+          </td>
+          <td>
+            <h2>Fecha</h2>
+          </td>
+        </th>
+        <?php
+        while ($row = $query->fetch_row()) {
+
+        ?>
           <tr>
-            <th>Fecha</th>
-            <th>Descripcion</th>
-            <th>Dieguito</th>
+            <td></td>
+            <td>User1</td>
+            <td>Marcelo</td>
+            <td><?=$row[1]?></td>
+            <td>
+              <form class="" action="" method="post">
+                  <input type="submit" value="Revisar" class="btn">
+              </form>
+            </td>
           </tr>
-          <tbody>
-            <tr>
-              <th>hola szs</th>
-              <th>hola x2</th>
-              <th>hola x3</th>
-              <th><button type="button" name="button">Revisar</button></th>
-            </tr>
-            <tr>
-              <th>hola szs</th>
-              <th>hola x2</th>
-              <th>dwdwd</th>
-              <th><button type="button" name="button">Revisar</button></th>
-            </tr>
-            <tr>
-              <th>hola szs</th>
-              <th>hola x2</th>
-              <th>hola x3</th>
-              <th><button type="button" name="button">Revisar</button></th>
-            </tr>
-          </tbody>
-        </thead>
+          <?php
+        }
+         ?>
+
       </table>
     </div>
   </body>
