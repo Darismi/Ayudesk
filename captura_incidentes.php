@@ -14,14 +14,13 @@
   </head>
   <body>
     <div class="container">
-	<h1>Hola</h1>
       <center>
         <h1>Reporte de incidente</h1>
 
 
       <form class="" action="captura_bd.php" method="post">
         <h2>Dispositivo afectado</h2>
-        <select name="dispositivo">
+        <select name="dispositivo" required>
           <option value="value1" selected >Dispositivo</option>
           <?php
             while ($row = $query -> fetch_row()) {
@@ -35,22 +34,22 @@
         <table class="table table-bordered" style="margin-top: 50px;">
           <th>
             <td>
-              <h4>Dispositivo</h4>
+              <h5>Dispositivo</h5>
             </td>
             <td>
-              <h4>Marca</h4>
+              <h5>Marca</h5>
             </td>
             <td>
-              <h4>Procesador</h4>
+              <h5>Procesador</h5>
             </td>
             <td>
-              <h4>Memoria</h4>
+              <h5>Memoria</h5>
             </td>
             <td>
-              <h4>Almacenamiento</h4>
+              <h5>Almacenamiento</h5>
             </td>
             <td>
-              <h4>sistema operativo</h4>
+              <h5>sistema operativo</h5>
             </td>
           </th>
         </table>
@@ -58,7 +57,7 @@
         <br>
         <br>
         <h2>¿Qué problema presenta?</h2>
-        <textarea placeholder="Escriba detalladamente" name="problema" rows="10" cols="70"></textarea>
+        <textarea placeholder="Escriba detalladamente" name="problema" rows="10" cols="70" required></textarea>
         <br>
         <br>
 
