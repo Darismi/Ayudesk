@@ -1,6 +1,6 @@
 <?php
   require 'conexion.php';
-  $query = mysqli_query($Conexion, "SELECT * FROM reporte where estado = 'Pendiente'");
+  $query = mysqli_query($C_reportes, "SELECT * FROM reporte where estado = 'Pendiente'");
 
  ?>
 
@@ -8,41 +8,54 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" href="css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="css/bootstrap-reboot.css">
+
     <title>Service Desk</title>
   </head>
   <body>
     <div class="container">
-      <table>
-        <th>
-          <td>
-            <h2>Usuario</h2>
-          </td>
-          <td>
-            <h2>Nombre</h2>
-          </td>
-          <td>
-            <h2>Fecha</h2>
-          </td>
-        </th>
-        <?php
-        while ($row = $query->fetch_row()) {
-
-        ?>
+      <nav class="navbar navbar-light bg- mt-5">
+        <a class="navbar-brand"></a>
+          <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
+      </nav>
+      <table class="table table-bordered mt-5">
+        <thead>
           <tr>
-            <td></td>
-            <td>User1</td>
-            <td>Marcelo</td>
-            <td><?=$row[1]?></td>
-            <td>
-              <form class="" action="" method="post">
-                  <input type="submit" value="Revisar" class="btn">
-              </form>
-            </td>
+            <th><h2> Usuario </h2></th>
+            <th><h2> Nombre </h2></th>
+            <th><h2> Fecha </h2></th>
+            <th><h2></h2></th>
           </tr>
-          <?php
-        }
-         ?>
+        </thead>
+         <tbody>
+           <?php
+           while ($row = $query->fetch_row()) {
+             $query2 = mysqli_query($C_empresaInfo, "SELECT * FROM usuario where id = '".$row[8]."'");
+             $row_usr = $query2->fetch_row();
+             $nombre = $row_usr[2] ." ". $row_usr[3] ." ". $row_usr[4] ." ". $row_usr[5];
+           ?>
 
+             <tr>
+               <td ><?=$row_usr[10]?></td>
+               <td><?=$nombre?></td>
+               <td><?=$row[1]?></td>
+               <td>
+                 <center>
+                   <form class="" action="" method="post">
+                       <input type="submit" value="Revisar" class="btn btn-primary">
+                   </form>
+                 </center>
+               </td>
+             </tr>
+             <?php
+           }
+            ?>
+         </tbody>
       </table>
     </div>
   </body>

@@ -1,7 +1,7 @@
 <?php
   require 'conexion.php';
   session_start();
-  $query = mysqli_query($Conexion, "SELECT * FROM dispositivo WHERE idusuario = '".$_SESSION['idusuario']."'");
+  $query = mysqli_query($C_empresaInfo, "SELECT * FROM dispositivo WHERE id_usuario = '".$_SESSION['idusuario']."'");
 
  ?>
 

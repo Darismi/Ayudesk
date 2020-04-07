@@ -1,13 +1,10 @@
 <?php
 
-    $Host = "localhost";
-    $User = "root";
-    $Password = "";
-    $DB = "servicedeskdb";
+    $C_empresaInfo = mysqli_connect("localhost","root","","empresainfo");
 
-    $Conexion = mysqli_connect($Host,$User,$Password,$DB);
+    $C_reportes = mysqli_connect("localhost","root","","reportesayudesk");
 
-    if($Conexion){
+    if($C_empresaInfo && $C_reportes){
         //echo "conexión exitosa";
     }else{
         echo "no se pudo conectar a la base de datos";
