@@ -7,7 +7,7 @@
     $nr = mysqli_num_rows($query);
 
     if ($nr == 1) {
-      header("Location: clasificacion_incidente.php");
+      header("Location: revision_incidente.php");
     }else if ($nr == 0){
       header("Location: login_asistente.php");
     }

@@ -1,13 +1,12 @@
 <?php
   require 'conexion.php';
-  $query = mysqli_query($C_reportes, "SELECT * FROM reporte where estado = 'Pendiente'");
-
+  $query = mysqli_query($C_reportes, "SELECT * FROM reporte WHERE id = '".$_POST['id_reporte']."';");
+  //$query2 =
  ?>
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <meta charset="utf-8">
 
     <link rel="stylesheet" href="css/bootstrap.css">
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -15,48 +14,47 @@
     <link rel="stylesheet" href="css/bootstrap-grid.min.css">
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
 
+    <meta charset="utf-8">
     <title>Service Desk</title>
   </head>
   <body>
-    <div class="container">
-      <nav class="navbar navbar-light bg- mt-5">
-        <a class="navbar-brand"></a>
-          <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
-      </nav>
-      <table class="table table-bordered mt-5">
-        <thead>
-          <tr>
-            <th><h2> Usuario </h2></th>
-            <th><h2> Nombre </h2></th>
-            <th><h2> Fecha </h2></th>
-            <th><h2></h2></th>
-          </tr>
-        </thead>
-         <tbody>
-           <?php
-           while ($row = $query->fetch_row()) {
-             $query2 = mysqli_query($C_empresaInfo, "SELECT * FROM usuario where id = '".$row[8]."'");
-             $row_usr = $query2->fetch_row();
-             $nombre = $row_usr[2] ." ". $row_usr[3] ." ". $row_usr[4] ." ". $row_usr[5];
-           ?>
+    <?php
+      $row = $query -> fetch_row();
+      $query2 = mysqli_query($C_empresaInfo, "SELECT * FROM dispositivo WHERE id = '".$row[5]."'");
+      $row_dispo = $query2 -> fetch_row();
+     ?>
 
-             <tr>
-               <td ><?=$row_usr[10]?></td>
-               <td><?=$nombre?></td>
-               <td><?=$row[1]?></td>
-               <td>
-                 <center>
-                   <form class="" action="" method="post">
-                       <input type="submit" value="Revisar" class="btn btn-primary">
-                   </form>
-                 </center>
-               </td>
-             </tr>
-             <?php
-           }
-            ?>
-         </tbody>
-      </table>
-    </div>
+     <div class="container">
+       <nav class="navbar navbar-light bg- mt-5">
+         <a class="navbar-brand"></a>
+         <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
+       </nav>
+
+       <label for="">fecha del reporte: </label><?=$row[1]?><br>
+       <label for="">Descripción del usuario: </label><?=$row[2]?><br>
+
+       <label for="">dispositivo: </label><?=$row_dispo[9]?><br>
+       <label for="">Marca: </label><?=$row_dispo[2]?><br>
+       <label for="">prosesador: </label><?=$row_dispo[3]?><br>
+       <label for="">memoria: </label><?=$row_dispo[4]?><br>
+       <label for="">almacenamiento: </label><?=$row_dispo[5]?><br>
+       <label for="">sistema operativo: </label><?=$row_dispo[6]?><br>
+
+       <label for="">intento de autosolución</label><?=$row[10]?><br>
+      <label for="">como intento solucionarlo</label><?=$row[11]?><br>
+
+
+      <form class="" action="" method="post">
+        <label for="">prioridad</label><br>
+        <label for="">Baja</label>
+        <input type="radio" name="group" value="Baja">
+        <label for="">Media</label>
+        <input type="radio" name="group" value="Media">
+        <label for="">Alta</label>
+        <input type="radio" name="group" value="Alta"><br>
+
+        <input class="btn btn-primary" type="submit" name="" value="Asignar Incidente">
+      </form>
+     </div>
   </body>
 </html>
