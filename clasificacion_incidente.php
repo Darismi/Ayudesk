@@ -1,7 +1,7 @@
 <?php
   require 'conexion.php';
   $query = mysqli_query($C_reportes, "SELECT * FROM reporte WHERE id = '".$_POST['id_reporte']."';");
-  //$query2 =
+
  ?>
 
 <!DOCTYPE html>
@@ -16,6 +16,13 @@
 
     <meta charset="utf-8">
     <title>Service Desk</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous">
+    </script>
+
   </head>
   <body>
     <?php
@@ -45,6 +52,19 @@
 
 
       <form class="" action="" method="post">
+        <select class="" id="tipo_incidente" name="tipo_incidente" required>
+          <option value="0" selected >Tipo de incidente</option>
+          <option value="1">Redes</option>
+          <option value="2">Software</option>
+          <option value="3">Hardware</option>
+        </select>
+
+        <div class="" id="tecnico"></div>
+
+        <br>
+
+        <textarea name="desc_asis" rows="8" cols="80"></textarea> <br>
+
         <label for="">prioridad</label><br>
         <label for="">Baja</label>
         <input type="radio" name="group" value="Baja">
@@ -58,3 +78,26 @@
      </div>
   </body>
 </html>
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    recargarLista();
+
+    $('#tipo_incidente').change(function(){
+      recargarLista();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  function recargarLista(){
+    $.ajax({
+      type:"POST",
+      url:"datos.php",
+      data:"incidente=" + $('#tipo_incidente').val(),
+      success:function(r){
+        $('#tecnico').html(r);
+      }
+    })
+  }
+</script>
