@@ -52,25 +52,32 @@
 
 
       <form class="" action="" method="post">
-        <select class="" id="tipo_incidente" name="tipo_incidente" required>
-          <option value="0" selected >Tipo de incidente</option>
-          <option value="1">Redes</option>
-          <option value="2">Software</option>
-          <option value="3">Hardware</option>
-        </select>
 
-        <div class="" id="tecnico"></div>
+
+          <label for="">Tipo de incidente</label>
+          <select class="mt-4" id="tipo_incidente" name="tipo_incidente" required>
+            <option value="0" selected ></option>
+            <option value="1">Redes</option>
+            <option value="3">Hardware</option>
+            <option value="4">Software</option>
+          </select>
+
+
+          <div class="mt-5" id="tecnico">
+
+          </div>
+
+
 
         <br>
+        <textarea name="desc_asis" rows="8" cols="80" placeholder="Escribe detalladamente el incidente de modo que sea fácil de interpretar por el técnico"></textarea> <br>
 
-        <textarea name="desc_asis" rows="8" cols="80"></textarea> <br>
-
-        <label for="">prioridad</label><br>
+        <label for="" class="mt-3">prioridad</label><br>
         <label for="">Baja</label>
         <input type="radio" name="group" value="Baja">
-        <label for="">Media</label>
+        <label for="" class="ml-5">Media</label>
         <input type="radio" name="group" value="Media">
-        <label for="">Alta</label>
+        <label for="" class="ml-5">Alta</label>
         <input type="radio" name="group" value="Alta"><br>
 
         <input class="btn btn-primary" type="submit" name="" value="Asignar Incidente">

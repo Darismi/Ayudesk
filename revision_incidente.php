@@ -37,7 +37,7 @@
            while ($row = $query->fetch_row()) {
              $query2 = mysqli_query($C_empresaInfo, "SELECT * FROM usuario where id = '".$row[8]."'");
              $row_usr = $query2->fetch_row();
-             $nombre = $row_usr[2] ." ". $row_usr[3] ." ". $row_usr[4] ." ". $row_usr[5];
+             $nombre = $row_usr[2] ." ". $row_usr[4] ." ". $row_usr[5];
            ?>
 
              <tr>

@@ -11,6 +11,13 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <title>Service Desk</title>
+
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous">
+    </script>
+
   </head>
   <body>
     <div class="container">
@@ -23,12 +30,10 @@
             <li class="nav-item ">
               <a class="nav-link" href="mis_reportes.php">Mis reportes <span class="sr-only">(current)</span></a>
             </li>
-            <form class="form-inline my-2 my-lg-0">
-              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>
-            </form>
           </ul>
         </div>
+        <a class="navbar-brand"></a>
+        <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
       </nav>
 
       <h1 class="mt-5">Reporte de incidente</h1>
