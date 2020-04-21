@@ -17,22 +17,21 @@
    </head>
    <body>
      <div class="container">
-       <nav class="navbar navbar-expand-lg navbar-light bg-light">
-         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-           <ul class="navbar-nav mr-auto">
-             <li class="nav-item">
-               <a class="nav-link" href="captura_incidentes.php">Reportar incidente <span class="sr-only">(current)</span></a>
-             </li>
-             <li class="nav-item active">
-               <a class="nav-link" href="mis_reportes.php">Mis reportes <span class="sr-only">(current)</span></a>
-             </li>
-             <form class="form-inline my-2 my-lg-0">
-               <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Salir</button>
-             </form>
-           </ul>
-         </div>
-       </nav>
+       <div class="container">
+         <nav class="navbar navbar-expand-lg navbar-light bg-light">
+           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+             <ul class="navbar-nav mr-auto">
+               <li class="nav-item">
+                 <a class="nav-link" href="captura_incidentes.php">Reportar incidente <span class="sr-only">(current)</span></a>
+               </li>
+               <li class="nav-item active">
+                 <a class="nav-link" href="#">Mis reportes <span class="sr-only">(current)</span></a>
+               </li>
+             </ul>
+           </div>
+             <a class="navbar-brand"></a>
+             <a class="btn  my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
+         </nav>
        <table class="table table-bordered mt-5">
          <thead>
            <tr>

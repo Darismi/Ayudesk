@@ -32,8 +32,8 @@
             </li>
           </ul>
         </div>
-        <a class="navbar-brand"></a>
-        <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
+          <a class="navbar-brand"></a>
+          <a class="btn  my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>        
       </nav>
 
       <h1 class="mt-5">Reporte de incidente</h1>

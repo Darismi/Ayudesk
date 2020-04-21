@@ -34,7 +34,7 @@
      <div class="container">
        <nav class="navbar navbar-light bg- mt-5">
          <a class="navbar-brand"></a>
-         <a class="btn  my-2 my-sm-0" href="login_asistente.php">Cerrar Sesión</a>
+         <a class="btn  my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
        </nav>
 
        <label for="">fecha del reporte: </label><?=$row[1]?><br>
@@ -51,8 +51,8 @@
       <label for="">como intento solucionarlo</label><?=$row[11]?><br>
 
 
-      <form class="" action="" method="post">
-
+      <form class="" action="asignacion_incidente.php" method="post">
+          <input type="hidden" name="id_reporte" value="<?=$row[0]?>">
 
           <label for="">Tipo de incidente</label>
           <select class="mt-4" id="tipo_incidente" name="tipo_incidente" required>
