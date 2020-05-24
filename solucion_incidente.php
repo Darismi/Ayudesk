@@ -75,6 +75,7 @@
           <div class="rows">
             <div class="col-6 mt-5">
               <form class="" action="index.html" method="post">
+                  <h4>Escalar Reporte</h4>
                   <textarea name="name" rows="8" cols="80" placeholder="Escriba la razón del escalamiento"></textarea>
                   <select class="" name="">
                     <option value="0">Seleccionar tecnico</option>
@@ -95,10 +96,14 @@
             }
            ?>
            <div class="col-6 mt-5">
-             <form class="" action="index.html" method="post">
-                <textarea name="name" rows="8" cols="80" placeholder="Escriba como solucionó el incidente"></textarea>
-                <input class="btn btn-primary" type="submit" name="escalarbtn" value="Finalizar reporte">
-             </form>
+
+               <form class="" action="index.html" method="post">
+                 <h4>Finalizar Reporte</h4>
+                  <textarea name="name" rows="8" cols="80" placeholder="Escriba como solucionó el incidente"></textarea>
+                  <textarea name="name" rows="8" cols="80" placeholder="Escriba que herramientas utilizó"></textarea>
+                  <input class="btn btn-primary" type="submit" name="escalarbtn" value="Finalizar reporte">
+               </form>
+
            </div>
         </div>
       </div>
