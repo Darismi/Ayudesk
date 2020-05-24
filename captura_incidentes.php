@@ -48,7 +48,7 @@
               <option value="value1" selected >Dispositivo</option>
               <?php
                 while ($row = $query -> fetch_row()) {
-                ?>
+                ?>                  
                   <option value="<?=$row[0]?>"><?=$row[2]?></option>
                 <?php
                 }
