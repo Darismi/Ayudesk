@@ -18,8 +18,13 @@
   $query5 = mysqli_query($C_empresaInfo, "SELECT * FROM tecnico_perfil_tecnico where id_tecnico != '".$row[6]."' and id_perfil = '".$row[15]."'");
   //$row_5 = $query5 -> fetch_row();
 
+  if (isset($_POST['finalizarbtn'])) {
+    // code...
+  }
 
-
+  if (isset($_POST['escalarbtn'])) {
+    // code...
+  }
  ?>
 
  <!DOCTYPE html>
@@ -74,7 +79,7 @@
         <div class="container first">
           <div class="rows">
             <div class="col-6 mt-5">
-              <form class="" action="index.html" method="post">
+              <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                   <h4>Escalar Reporte</h4>
                   <textarea name="name" rows="8" cols="80" placeholder="Escriba la razón del escalamiento"></textarea>
                   <select class="" name="">
@@ -97,11 +102,11 @@
            ?>
            <div class="col-6 mt-5">
 
-               <form class="" action="index.html" method="post">
+               <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                  <h4>Finalizar Reporte</h4>
                   <textarea name="name" rows="8" cols="80" placeholder="Escriba como solucionó el incidente"></textarea>
                   <textarea name="name" rows="8" cols="80" placeholder="Escriba que herramientas utilizó"></textarea>
-                  <input class="btn btn-primary" type="submit" name="escalarbtn" value="Finalizar reporte">
+                  <input class="btn btn-primary" type="submit" name="finalizarbtn" value="Finalizar reporte">
                </form>
 
            </div>
