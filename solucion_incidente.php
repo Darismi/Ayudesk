@@ -23,7 +23,9 @@
   }
 
   if (isset($_POST['escalarbtn'])) {
-    // code...
+    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `id_tecnico_esc` = '".$_POST['id_tecnico_esc']."', `razon` = '".$_POST['razon']."' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
+    header ("Location: revision_tecnico.php");
+
   }
  ?>
 
@@ -81,8 +83,8 @@
             <div class="col-6 mt-5">
               <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                   <h4>Escalar Reporte</h4>
-                  <textarea name="name" rows="8" cols="80" placeholder="Escriba la razón del escalamiento"></textarea>
-                  <select class="" name="">
+                  <textarea name=razon rows="8" cols="80" placeholder="Escriba la razón del escalamiento"></textarea>
+                  <select class="" name="id_tecnico_esc">
                     <option value="0">Seleccionar tecnico</option>
                     <?php
                       while ($row_5 = $query5 -> fetch_row()) {
@@ -94,6 +96,7 @@
                       }
                       ?>
                   </select>
+                  <input type="hidden" name="idreporte" value="<?=$_POST['id_reporte']?>">
                   <input class="btn btn-dark" type="submit" name="escalarbtn" value="Escalar incidente">
               </form>
             </div>
