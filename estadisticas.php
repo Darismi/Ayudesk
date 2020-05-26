@@ -23,7 +23,18 @@
   </head>
   <body>
     <div class="container">
-      <div class="row">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav">
+           <li class="nav-item active">
+             <a class="nav-link" href="estadisticas.php">Estadísticas</a>
+           </li>
+          </ul>
+        </div>
+          <a class="navbar-brand"></a>
+          <a class="btn my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
+      </nav>
+      <div class="row mt-5">
         <div class="col-xs-5 col-md-5">
           <h1>Incidente mas común</h1>
           <canvas id="myChart" width="400" height="400"></canvas>

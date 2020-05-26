@@ -24,9 +24,13 @@
   </head>
   <body>
     <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light mt-5">
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+          <ul class="navbar-nav">
+           <li class="nav-item">
+             <a class="nav-link" href="estadisticas.php">Estadísticas</a>
+           </li>
+          </ul>
         </div>
           <a class="navbar-brand"></a>
           <a class="btn my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
@@ -48,7 +52,7 @@
               <option value="value1" selected >Dispositivo</option>
               <?php
                 while ($row = $query -> fetch_row()) {
-                ?>                  
+                ?>
                   <option value="<?=$row[0]?>"><?=$row[2]?></option>
                 <?php
                 }
