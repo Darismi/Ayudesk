@@ -19,11 +19,12 @@
   //$row_5 = $query5 -> fetch_row();
 
   if (isset($_POST['finalizarbtn'])) {
-    // code...
+    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `descripcion_tecnico` = '".$_POST['desc_tec']."', `herramientas` = '".$_POST['herramientas']."', `estado` = 'Finalizado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
+    header ("Location: revision_tecnico.php");
   }
 
   if (isset($_POST['escalarbtn'])) {
-    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `id_tecnico_esc` = '".$_POST['id_tecnico_esc']."', `razon` = '".$_POST['razon']."' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
+    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `id_tecnico_esc` = '".$_POST['id_tecnico_esc']."', `razon` = '".$_POST['razon']."', `estado` = 'Escalonado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
     header ("Location: revision_tecnico.php");
 
   }
@@ -107,8 +108,9 @@
 
                <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                  <h4>Finalizar Reporte</h4>
-                  <textarea name="name" rows="8" cols="80" placeholder="Escriba como solucionó el incidente"></textarea>
-                  <textarea name="name" rows="8" cols="80" placeholder="Escriba que herramientas utilizó"></textarea>
+                  <textarea name="desc_tec" rows="8" cols="80" placeholder="Escriba como solucionó el incidente"></textarea>
+                  <textarea name="herramientas" rows="8" cols="80" placeholder="Escriba que herramientas utilizó"></textarea>
+                  <input type="hidden" name="idreporte" value="<?=$_POST['id_reporte']?>">
                   <input class="btn btn-primary" type="submit" name="finalizarbtn" value="Finalizar reporte">
                </form>
 

@@ -1,8 +1,8 @@
 <?php
   require 'conexion.php';
   session_start();
-  $query = mysqli_query($C_reportes,"SELECT * FROM reporte WHERE id_tecnico = '".$_SESSION['userid']."' and id_tecnico_esc is NULL");
-  $query2 = mysqli_query($C_reportes,"SELECT * FROM reporte WHERE id_tecnico_esc = '".$_SESSION['userid']."'");
+  $query = mysqli_query($C_reportes,"SELECT * FROM reporte WHERE id_tecnico = '".$_SESSION['userid']."' and id_tecnico_esc is NULL and `estado` != 'Finalizado'");
+  $query2 = mysqli_query($C_reportes,"SELECT * FROM reporte WHERE id_tecnico_esc = '".$_SESSION['userid']."' and `estado` != 'Finalizado'");
 
  ?>
 
