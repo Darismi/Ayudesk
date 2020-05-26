@@ -1,5 +1,12 @@
 <?php
   require 'conexion.php';
+
+  $query_redes = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '3'");
+  $nr_1 = mysqli_num_rows($query_redes);
+  $query_software = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '2'");
+  $nr_2 = mysqli_num_rows($query_software);
+  $query_hardware = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '1'");
+  $nr_3 = mysqli_num_rows($query_hardware);
  ?>
 <!DOCTYPE html>
 <html>
@@ -30,10 +37,10 @@
         var myChart = new Chart(ctx,{
           type:"pie",
           data: {
-            labels:['col1', 'col2', 'col3'],
+            labels:['Redes', 'Software', 'Hardware'],
             datasets:[{
               label:'num datos',
-              data:[10,9,15],
+              data:[<?=$nr_1?>,<?=$nr_2?>,<?=$nr_3?>],
               backgroundColor:[
                 'rgb(66, 134, 244)',
                 'rgb(74, 135, 72)',
