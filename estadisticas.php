@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="wigth=device-width, initial-scale=1.0">
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+    <script type="text/javascript" src="js/Chart.js"></script>
   </head>
   <body>
     <div class="container">
@@ -38,6 +38,7 @@
         <div class="col-xs-5 col-md-5">
           <h1>Incidente mas común</h1>
           <canvas id="myChart" width="400" height="400"></canvas>
+          <canvas id="myChart2" width="400" height="400"></canvas>
         </div>
       </div>
     </div>
@@ -47,6 +48,34 @@
         var ctx = document.getElementById("myChart").getContext("2d");
         var myChart = new Chart(ctx,{
           type:"pie",
+          data: {
+            labels:['Redes', 'Software', 'Hardware'],
+            datasets:[{
+              label:'num datos',
+              data:[<?=$nr_1?>,<?=$nr_2?>,<?=$nr_3?>],
+              backgroundColor:[
+                'rgb(66, 134, 244)',
+                'rgb(74, 135, 72)',
+                'rgb(229, 89, 50)'
+              ]
+            }]
+          },
+          options:{
+            scales:{
+              yAxes:[{
+                ticks:{
+                  beginAtZero:true
+                }
+              }]
+            }
+          }
+        });
+      </script>
+
+      <script>
+        var ctx = document.getElementById("myChart2").getContext("2d");
+        var myChart = new Chart(ctx,{
+          type:"bar",
           data: {
             labels:['Redes', 'Software', 'Hardware'],
             datasets:[{
