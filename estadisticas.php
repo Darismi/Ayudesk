@@ -1,12 +1,19 @@
 <?php
   require 'conexion.php';
 
+  //querys para sacar estadisticas de incidente mas comun
   $query_redes = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '3'");
   $nr_1 = mysqli_num_rows($query_redes);
   $query_software = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '2'");
   $nr_2 = mysqli_num_rows($query_software);
   $query_hardware = mysqli_query($C_reportes,"SELECT * FROM reporte where tipo = '1'");
   $nr_3 = mysqli_num_rows($query_hardware);
+
+  //querys para estadisticas de cantidad de reportes por usuarios
+  $query_cru = mysqli_query($C_reportes,"SELECT * FROM usuario_reportes");
+  //;
+
+
  ?>
 <!DOCTYPE html>
 <html>
@@ -38,6 +45,9 @@
         <div class="col-xs-5 col-md-5">
           <h1>Incidente mas común</h1>
           <canvas id="myChart" width="400" height="400"></canvas>
+        </div>
+        <div class="col-xs-5 col-md-5 ml-5">
+          <h1 class="">Reportes de usuarios</h1>
           <canvas id="myChart2" width="400" height="400"></canvas>
         </div>
       </div>
@@ -73,14 +83,19 @@
       </script>
 
       <script>
+
         var ctx = document.getElementById("myChart2").getContext("2d");
         var myChart = new Chart(ctx,{
+
           type:"bar",
           data: {
-            labels:['Redes', 'Software', 'Hardware'],
+            <?php
+            while ($row_cru = $query_cru -> fetch_row()) {
+             ?>
+            labels:['<?=$row_cru[3]?>'],
             datasets:[{
               label:'num datos',
-              data:[<?=$nr_1?>,<?=$nr_2?>,<?=$nr_3?>],
+              data:[<?=$row_cru[5]?>],
               backgroundColor:[
                 'rgb(66, 134, 244)',
                 'rgb(74, 135, 72)',
@@ -97,6 +112,9 @@
               }]
             }
           }
+          <?php
+        }
+           ?>
         });
       </script>
 </html>
