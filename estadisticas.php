@@ -10,8 +10,9 @@
   $nr_3 = mysqli_num_rows($query_hardware);
 
   //querys para estadisticas de cantidad de reportes por usuarios
-  $query_cru = mysqli_query($C_reportes,"SELECT * FROM usuario_reportes");
-  //;
+
+  //$row_cru = $query_cru -> fetch_row();
+
 
 
  ?>
@@ -26,6 +27,7 @@
     <link rel="stylesheet" href="css/bootstrap-reboot.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="wigth=device-width, initial-scale=1.0">
+    <script type="text/javascript" src="js/jquery-3.4.1.js"></script>
     <script type="text/javascript" src="js/Chart.js"></script>
   </head>
   <body>
@@ -86,16 +88,29 @@
 
         var ctx = document.getElementById("myChart2").getContext("2d");
         var myChart = new Chart(ctx,{
-
           type:"bar",
           data: {
+            labels:[
             <?php
-            while ($row_cru = $query_cru -> fetch_row()) {
-             ?>
-            labels:['<?=$row_cru[3]?>'],
-            datasets:[{
-              label:'num datos',
-              data:[<?=$row_cru[5]?>],
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM usuario_reportes");
+            while ($row_cru = $query_cru -> fetch_row())
+            {
+            ?>
+                '<?php echo $row_cru[3];?>',
+            <?php
+            }
+            ?>
+            ],
+          datasets:[{
+            label:'numero de reportes',
+            data:
+            <?php
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM usuario_reportes");
+            ?>
+            [<?php while ($row_cru = $query_cru -> fetch_row()) { ?><?php echo $row_cru[5] ?>,
+              <?php }?>],
+
+
               backgroundColor:[
                 'rgb(66, 134, 244)',
                 'rgb(74, 135, 72)',
@@ -112,9 +127,7 @@
               }]
             }
           }
-          <?php
-        }
-           ?>
+
         });
       </script>
 </html>
