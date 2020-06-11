@@ -6,7 +6,7 @@
 
   $cadena = "<label for=''>Tecnico</label>
 
-            <select id='tecnico' class='' name='id_tecnico' required>";
+            <select id='tecnico' class='custom-select' name='id_tecnico' required>";
   while ($row = $query -> fetch_row()) {
     $query2 = mysqli_query($C_empresaInfo,"SELECT * FROM usuario WHERE id = '".$row[0]."'");
     $row_tec = $query2 -> fetch_row();

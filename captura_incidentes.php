@@ -47,17 +47,26 @@
 
           <form class="" action="captura_bd.php" method="post">
             <input type="hidden" name="id_usuario" value="<?=$usuario?>">
-            <label class="mt-5" for="">Dispositivo afectado</label>
-            <select class="custom-select .col-" name="dispositivo" required>
-              <option value="value1" selected >Dispositivo</option>
-              <?php
-                while ($row = $query -> fetch_row()) {
-                ?>
-                  <option value="<?=$row[0]?>"><?=$row[2]?></option>
-                <?php
-                }
-                ?>
-            </select>
+
+            <div class="row">
+              <div class="col-6">
+                <label class="mt-5" for="">Dispositivo afectado</label>
+                <select class="custom-select .col-" name="dispositivo" id="id_maquina" required>
+                  <option value="value1" selected >Dispositivo</option>
+                  <?php
+                    while ($row = $query -> fetch_row()) {
+                    ?>
+                      <option value="<?=$row[0]?>"><?=$row[2]?></option>
+                    <?php
+                    }
+                    ?>
+                </select>
+              </div>
+                <div class="mt-5" id="hojadevida"></div>              
+            </div>
+
+
+
 
             <br>
             <br>
@@ -78,19 +87,24 @@
             <textarea placeholder="Escriba detalladamente" name="intento" rows="10" cols="70"></textarea>
             <br>
             <br>
-            <label for="">Tipo de incidente</label>
-            <select class="mt-4" id="tipo_incidente" name="tipo_incidente" required>
-              <option value="0" selected ></option>
-              <option value="1">Hardware</option>
-              <option value="2">Software</option>
-              <option value="3">Redes</option>
-            </select>
 
 
-            <div class="mt-5" id="tecnico">
+            <div class="row mt-5">
+              <div class="col-4">
+                <label for="">Tipo de incidente</label>
+                <select class="custom-select" id="tipo_incidente" name="tipo_incidente" required>
+                  <option value="0" selected ></option>
+                  <option value="1">Hardware</option>
+                  <option value="2">Software</option>
+                  <option value="3">Redes</option>
+                </select>
+              </div>
+              <div class="col-5">
+                <div class="ml-5" id="tecnico"></div>
+              </div>
 
             </div><br>
-            <textarea name="desc_asis" rows="8" cols="80" placeholder="Escribe detalladamente el incidente de modo que sea fácil de interpretar por el técnico"></textarea> <br>
+            <textarea class="mt-5" name="desc_asis" rows="8" cols="80" placeholder="Escribe detalladamente el incidente de modo que sea fácil de interpretar por el técnico"></textarea> <br>
 
             <label for="" class="mt-3">prioridad</label><br>
             <label for="">Baja</label>
@@ -126,6 +140,32 @@
       data:"incidente=" + $('#tipo_incidente').val(),
       success:function(r){
         $('#tecnico').html(r);
+      }
+    })
+  }
+</script>
+
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    cargarHoja();
+
+    $('#id_maquina').change(function(){
+      cargarHoja();
+    });
+  });
+</script>
+
+<script type="text/javascript">
+  function cargarHoja(){
+    $.ajax({
+      type:"POST",
+      url:"datos2.php",
+      data:"dispositivo=" + $('#id_maquina').val(),
+      success:function(r){
+        $('#hojadevida').html(r);
       }
     })
   }
