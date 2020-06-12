@@ -53,6 +53,16 @@
           <canvas id="myChart2" width="400" height="400"></canvas>
         </div>
       </div>
+      <div class="row mt-5">
+        <div class="col-xs-5 col-md-5">
+          <h1>Técnico que mas resuelve incidentes</h1>
+          <canvas id="myChart3" width="400" height="400"></canvas>
+        </div>
+        <div class="col-xs-5 col-md-5 ml-5">
+          <h1>Técnico que mas escalona incidentes</h1>
+          <canvas id="myChart4" width="400" height="400"></canvas>
+        </div>
+      </div>
     </div>
   </body>
 
@@ -130,4 +140,99 @@
 
         });
       </script>
+
+      <script>
+
+        var ctx = document.getElementById("myChart3").getContext("2d");
+        var myChart = new Chart(ctx,{
+          type:"bar",
+          data: {
+            labels:[
+            <?php
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM tecnico_finalizado");
+            while ($row_cru = $query_cru -> fetch_row())
+            {
+            ?>
+                '<?php echo $row_cru[3];?>',
+            <?php
+            }
+            ?>
+            ],
+          datasets:[{
+            label:'numero de reportes',
+            data:
+            <?php
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM tecnico_finalizado");
+            ?>
+            [<?php while ($row_cru = $query_cru -> fetch_row()) { ?><?php echo $row_cru[5] ?>,
+              <?php }?>],
+
+
+              backgroundColor:[
+                'rgba(0, 99, 132)',
+                'rgba(120, 99, 132)',
+                'rgb(229, 89, 50)'
+              ]
+            }]
+          },
+          options:{
+            scales:{
+              yAxes:[{
+                ticks:{
+                  beginAtZero:true
+                }
+              }]
+            }
+          }
+
+        });
+      </script>
+
+      <script>
+
+        var ctx = document.getElementById("myChart4").getContext("2d");
+        var myChart = new Chart(ctx,{
+          type:"bar",
+          data: {
+            labels:[
+            <?php
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM tecnico_escalado");
+            while ($row_cru = $query_cru -> fetch_row())
+            {
+            ?>
+                '<?php echo $row_cru[3];?>',
+            <?php
+            }
+            ?>
+            ],
+          datasets:[{
+            label:'numero de reportes',
+            data:
+            <?php
+            $query_cru = mysqli_query($C_reportes,"SELECT * FROM tecnico_escalado");
+            ?>
+            [<?php while ($row_cru = $query_cru -> fetch_row()) { ?><?php echo $row_cru[5] ?>,
+              <?php }?>],
+
+
+              backgroundColor:[
+                'rgba(0, 99, 132)',
+                'rgba(120, 99, 132)',
+                'rgb(229, 89, 50)'
+              ]
+            }]
+          },
+          options:{
+            scales:{
+              yAxes:[{
+                ticks:{
+                  beginAtZero:true
+                }
+              }]
+            }
+          }
+
+        });
+      </script>
+
 </html>

@@ -19,15 +19,53 @@
   //$row_5 = $query5 -> fetch_row();
 
   if (isset($_POST['finalizarbtn'])) {
-    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `descripcion_tecnico` = '".$_POST['desc_tec']."', `herramientas` = '".$_POST['herramientas']."', `estado` = 'Finalizado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
+    $query_fin = mysqli_query($C_reportes, "UPDATE `reporte` SET `descripcion_tecnico` = '".$_POST['desc_tec']."', `herramientas` = '".$_POST['herramientas']."', `estado` = 'Finalizado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
+
+    $query_bus_tec = mysqli_query($C_reportes, "SELECT * FROM tecnico_finalizado WHERE id_tecnico = '".$_SESSION['userid']."'");
+    $nr_bus = mysqli_num_rows($query_bus_tec);
+
+    if($nr_bus == 1){
+        $row_bus = $query_bus_tec -> fetch_row();
+        $suma = $row_bus[5] + 1;
+        $sql = mysqli_query($C_reportes,"UPDATE `tecnico_finalizado` SET `n_finalizados` = '".$suma."' WHERE `id_tecnico` = '".$_SESSION['userid']."'");
+
+    }else{
+      $query_tecnico = mysqli_query($C_empresaInfo, "SELECT * FROM usuario WHERE id = '".$_SESSION['userid']."'");
+      $row_tecnico = $query_tecnico -> fetch_row();
+      $sql = mysqli_query($C_reportes,"INSERT INTO `tecnico_finalizado`
+        (`id`, `cc`, `id_tecnico`, `nombre`, `usuario`, `n_finalizados`)
+         VALUES (NULL, '".$row_tecnico[9]."', '".$_SESSION['userid']."', '".$row_tecnico[1]."', '".$row_tecnico[7]."', 1)");
+
+    }
+
     header ("Location: revision_tecnico.php");
   }
+
+
+
 
   if (isset($_POST['escalarbtn'])) {
-    $quey_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `id_tecnico_esc` = '".$_POST['id_tecnico_esc']."', `razon` = '".$_POST['razon']."', `estado` = 'Escalonado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
-    header ("Location: revision_tecnico.php");
+    $query_esc = mysqli_query($C_reportes, "UPDATE `reporte` SET `id_tecnico_esc` = '".$_POST['id_tecnico_esc']."', `razon` = '".$_POST['razon']."', `estado` = 'Escalonado' WHERE `reporte`.`id` = '".$_POST['idreporte']."'");
 
-  }
+    $query_bus_tec = mysqli_query($C_reportes, "SELECT * FROM tecnico_escalado WHERE id_tecnico = '".$_SESSION['userid']."'");
+    $nr_bus = mysqli_num_rows($query_bus_tec);
+
+    if($nr_bus == 1){
+        $row_bus = $query_bus_tec -> fetch_row();
+        $suma = $row_bus[5] + 1;
+        $sql = mysqli_query($C_reportes,"UPDATE `tecnico_escalado` SET `n_escalados` = '".$suma."' WHERE `id_tecnico` = '".$_SESSION['userid']."'");
+
+    }else{
+      $query_tecnico = mysqli_query($C_empresaInfo, "SELECT * FROM usuario WHERE id = '".$_SESSION['userid']."'");
+      $row_tecnico = $query_tecnico -> fetch_row();
+      $sql = mysqli_query($C_reportes,"INSERT INTO `tecnico_escalado`
+        (`id`, `cc`, `id_tecnico`, `nombre`, `usuario`, `n_escalados`)
+         VALUES (NULL, '".$row_tecnico[9]."', '".$_SESSION['userid']."', '".$row_tecnico[1]."', '".$row_tecnico[7]."', 1)");
+
+       }
+       header ("Location: revision_tecnico.php");
+    }
+
  ?>
 
  <!DOCTYPE html>
@@ -85,20 +123,26 @@
               <form class="" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post">
                   <h4>Escalar Reporte</h4>
                   <textarea name=razon rows="8" cols="80" placeholder="Escriba la razón del escalamiento"></textarea>
-                  <select class="" name="id_tecnico_esc">
-                    <option value="0">Seleccionar tecnico</option>
-                    <?php
-                      while ($row_5 = $query5 -> fetch_row()) {
-                        $query6 = mysqli_query($C_empresaInfo, "SELECT * FROM usuario WHERE id = '".$row_5[0]."'");
-                        $row_tec = $query6 ->fetch_row();
-                      ?>
-                        <option value="<?=$row_tec[0]?>"><?=$row_tec[1]." ".$row_tec[1]." ".$row_tec[3]?></option>
-                      <?php
-                      }
-                      ?>
-                  </select>
-                  <input type="hidden" name="idreporte" value="<?=$_POST['id_reporte']?>">
-                  <input class="btn btn-dark" type="submit" name="escalarbtn" value="Escalar incidente">
+                  <div class="row">
+                    <div class="col">
+                      <select class="custom-select" name="id_tecnico_esc">
+                        <option value="0">Seleccionar tecnico</option>
+                        <?php
+                          while ($row_5 = $query5 -> fetch_row()) {
+                            $query6 = mysqli_query($C_empresaInfo, "SELECT * FROM usuario WHERE id = '".$row_5[0]."'");
+                            $row_tec = $query6 ->fetch_row();
+                          ?>
+                            <option value="<?=$row_tec[0]?>"><?=$row_tec[1]." ".$row_tec[2]." ".$row_tec[3]?></option>
+                          <?php
+                          }
+                          ?>
+                      </select>
+                    </div>
+                    <div class="col">
+                      <input type="hidden" name="idreporte" value="<?=$_POST['id_reporte']?>">
+                      <input class="btn btn-dark" type="submit" name="escalarbtn" value="Escalar incidente">
+                    </div>
+                  </div>
               </form>
             </div>
           <?php

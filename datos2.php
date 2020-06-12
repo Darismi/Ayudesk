@@ -21,14 +21,14 @@
               </thead>
               <tbody>";
   while ($row = $query -> fetch_row()) {
-    $cadena = $cadena.'<tr><td>'.$row[0].'</td>';
-    $cadena = $cadena.'<td>'.$row[1].'</td>';
+    $cadena = $cadena.'<tr><td>'.$row[1].'</td>';
     $cadena = $cadena.'<td>'.$row[2].'</td>';
     $cadena = $cadena.'<td>'.$row[3].'</td>';
     $cadena = $cadena.'<td>'.$row[4].'</td>';
     $cadena = $cadena.'<td>'.$row[5].'</td>';
     $cadena = $cadena.'<td>'.$row[6].'</td>';
-    $cadena = $cadena.'<td>'.$row[7].'</td></tr>';
+    $cadena = $cadena.'<td>'.$row[7].'</td>';
+    $cadena = $cadena.'<td>'.$row[8].'</td></tr>';
   }
 
   echo $cadena."</tbody></table>";
