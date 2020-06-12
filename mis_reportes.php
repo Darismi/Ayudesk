@@ -25,6 +25,11 @@
                 <a class="nav-link" href="estadisticas.php">Estadísticas</a>
               </li>
              </ul>
+             <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="faq.html" target="_blank">FAQ</a>
+              </li>
+             </ul>
            </div>
              <a class="navbar-brand"></a>
              <a class="btn my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
