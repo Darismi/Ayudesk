@@ -34,6 +34,7 @@
              <a class="navbar-brand"></a>
              <a class="btn my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
          </nav>
+         
        <table class="table table-bordered mt-5">
          <thead>
            <tr>

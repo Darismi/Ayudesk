@@ -85,33 +85,156 @@
          <a class="navbar-brand"></a>
          <a class="btn  my-2 my-sm-0" href="cerrar_session.php">Cerrar Sesión</a>
        </nav>
-       <h4>Usuario : </h4><?=$row_usr[7]?><br>
-       <h4>Nombre : </h4><?=$row_usr[1]." ".$row_usr[2]." ".$row_usr[3]?><br><br>
+
+       <div class="row">
+         <div class="col-3">
+          <h5>fecha del reporte : </h5>
+         </div>
+         <div class="col-3">
+           <?=$row[1]?>
+         </div>
+       </div>
+
+       <div class="row mt-5">
+         <div class="col-3">
+            <h5>Usuario : </h5>
+         </div>
+         <div class="col-3">
+            <?=$row_usr[7]?>
+         </div>
+       </div>
+
+       <div class="row mt-2">
+         <div class="col-3">
+          <h5>Nombre : </h5>
+         </div>
+         <div class="col-3">
+          <?=$row_usr[1]." ".$row_usr[2]." ".$row_usr[3]?>
+         </div>
+       </div>
+
+       <div class="row mt-2">
+         <div class="col-3">
+          <h5>Descripción del usuario : </h4>
+         </div>
+         <div class="col-3">
+           <?=$row[2]?>
+         </div>
+       </div>
+
+        <div class="row mt-5">
+          <div class="col-3">
+           <h5>usuario del asistente : </h5>
+          </div>
+          <div class="col-3">
+            <?=$row_ast[7]?>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-3">
+           <h5>Nombre del asistente : </h5>
+          </div>
+          <div class="col-3">
+            <?=$row_ast[1]." ".$row_ast[2]." ".$row_ast[3]?>
+          </div>
+        </div>
+
+        <div class="row mt-2">
+          <div class="col-3">
+           <h5>Descripción del asistente : </h5>
+          </div>
+          <div class="col-3">
+            <?=$row[3]?><br>
+          </div>
+        </div>
+
+         <div class="row mt-5">
+           <div class="col-3">
+            <h5>Dispositivo : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[9]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Marca : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[2]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Prosesador : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[3]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Memoria : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[4]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Almacenamiento : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[5]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Sistema operativo : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row_dispo[6]?>
+           </div>
+         </div>
+
+         <div class="row mt-5">
+           <div class="col-3">
+             <h5>Intento de autosolución : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row[10]?>
+           </div>
+         </div>
+
+         <div class="row mt-2">
+           <div class="col-3">
+             <h5>Como intento solucionarlo : </h5>
+           </div>
+           <div class="col-3">
+             <?=$row[11]?>
+           </div>
+         </div>
 
        <?php
          if ($row[7] != NULL){
          ?>
-           <h4>Descripción Técnico : </h4><?=$row[4]?><br><br>
+       <div class="row mt-5">
+         <div class="col-4">
+           <h5>Descripción Técnico : </h5>
+         </div>
+         <div class="col-4">
+           <?=$row[4]?>
+         </div>
+       </div>
        <?php
          }
         ?>
-
-       <h4>usuario del asistente : </h4><?=$row_ast[7]?><br>
-       <h4>Nombre del asistente : </h4><?=$row_ast[1]." ".$row_ast[2]." ".$row_ast[3]?><br><br>
-
-       <h4>fecha del reporte : </h4><?=$row[1]?><br>
-       <h4>Descripción del usuario : </h4><?=$row[2]?><br>
-       <h4>Descripción del asistente : </h4><?=$row[3]?><br>
-
-       <h4>Dispositivo : </h4><?=$row_dispo[9]?><br>
-       <h4>Marca : </h4><?=$row_dispo[2]?><br>
-       <h4>Prosesador : </h4><?=$row_dispo[3]?><br>
-       <h4>Memoria : </h4><?=$row_dispo[4]?><br>
-       <h4>Almacenamiento : </h4><?=$row_dispo[5]?><br>
-       <h4>Sistema operativo : </h4><?=$row_dispo[6]?><br>
-
-       <h4>Intento de autosolución : </h4><?=$row[10]?><br>
-      <h4>Como intento solucionarlo : </h4><?=$row[11]?><br>
 
       <?php
         if ($row[7] == NULL){
