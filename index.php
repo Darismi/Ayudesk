@@ -46,7 +46,7 @@
 
     <title>Ayudesk</title>
   </head>
-  <body style="background: url(img/background.png) center center fixed">
+  <body style="background: url(img/background_.png) center center fixed">
     <center>
       <div class="modal-dialog center">
         <div class="col-sm-8 main-section">
@@ -63,7 +63,7 @@
               </div>
               <div class="form-group">
                 <input type="submit" class="btn btn-primary" placeholder="Ingresar" value="Ingresar" name="btnIngresar">
-              </div>              
+              </div>
             </form>
           </div>
         </div>
